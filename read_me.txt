@@ -1,0 +1,1 @@
+run skillate.py and feed the reult file to skill_model.py

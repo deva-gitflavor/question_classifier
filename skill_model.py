@@ -8,7 +8,7 @@ from sklearn.naive_bayes import GaussianNB
 
 nlp_pipe = spacy.load("en_core_web_sm")
 
-train = pd.read_csv('./midway.csv')
+train = pd.read_csv('/home/deva/Desktop/predictions/coding_assignment/midway.csv')
 y = train.pop('class')
 train.pop('sub_class')
 train.pop('Question')
@@ -17,7 +17,7 @@ train.pop('two_words')
 X_train = pd.get_dummies(train)
 
 # training_file = pd.read_csv('/home/deva/coding_assignment/traininig_dataset (1) (1).txt', sep='/t', header=None)
-raw = pd.read_csv('./validation_dataset (1) (1).txt', encoding='utf-8', sep='/t', header=None)
+raw = pd.read_csv('/home/deva/Desktop/predictions/coding_assignment/validation_dataset (1) (1).txt', encoding='utf-8', sep='/t', header=None)
 
 
 ab = pd.DataFrame()
@@ -90,6 +90,7 @@ X_train, X_predict = transform_data_matrix(X_train, X_predict)
 def naive_bayes_classifier(X_train, y, X_predict):
     gnb = GaussianNB()
     X_predict = X_predict.todense()
+    X_train = X_train.todense()
     gnb.fit(X_train, y)   
     prediction = gnb.predict(X_predict)
     return prediction
