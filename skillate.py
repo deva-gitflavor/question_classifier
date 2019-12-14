@@ -4,7 +4,7 @@ import pandas as pd
 
 nlp_pipe = spacy.load("en_core_web_md")
 
-raw = pd.read_csv('/home/deva/coding_assignment/traininig_dataset (1) (1).txt', sep='/t', header=None)
+raw = pd.read_csv('./traininig_dataset (1) (1).txt', sep='/t', header=None)
 
 ab = pd.DataFrame()
 for x in range(len(raw)):
@@ -23,4 +23,4 @@ for x in range(len(raw)):
 		if word.dep_ == "ROOT":
 			ab.loc[x, 'root_pos'] = word.tag_
 
-ab.to_csv('/home/deva/Desktop/midway.csv')
+ab.to_csv('./midway.csv')
